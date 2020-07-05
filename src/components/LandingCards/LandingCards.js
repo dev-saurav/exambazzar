@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
     },
     cardMedia: {
-        paddingTop: '56.25%', // 16:9
+        paddingTop: '100%',
     },
     cardContent: {
         flexGrow: 1,
@@ -22,14 +22,15 @@ const useStyles = makeStyles((theme) => ({
 const LandingCards = ({ title, logo }) => {
     const classes = useStyles();
     return (
-        <Card className={classes.card}>
+        <Card style={{ cursor: "pointer" }} className={classes.card}>
             <CardMedia
                 className={classes.cardMedia}
                 image={logo.black}
+                img={{ padding: '5px' }}
                 title="stream card"
             />
             <CardContent className={classes.cardContent}>
-                <Typography gutterBottom variant="h5" component="h2">
+                <Typography gutterBottom variant="h6" align="center">
                     {title}
                 </Typography>
             </CardContent>

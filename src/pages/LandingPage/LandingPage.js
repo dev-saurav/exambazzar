@@ -105,7 +105,7 @@ const LandingPage = () => {
                     {/* End hero unit */}
                     <Grid container spacing={4}>
                         {sortedExamData.map((stream) => (
-                            <Grid item key={stream._id} xs={12} sm={6} md={4}>
+                            <Grid item key={stream._id} xs={4} sm={2}>
                                 <LandingCards title={stream.name} logo={stream.logo} />
                             </Grid>
                         ))}
