@@ -1,7 +1,7 @@
 import React from 'react'
 
 //imports from material ui
-import { Card, CardMedia, CardContent, Typography, CardActions, Button, } from '@material-ui/core'
+import { Card, CardMedia, CardContent, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 
 //material-ui styles
@@ -25,7 +25,7 @@ const LandingCards = ({ title, logo }) => {
         <Card style={{ cursor: "pointer" }} className={classes.card}>
             <CardMedia
                 className={classes.cardMedia}
-                image={logo.black}
+                image={logo}
                 img={{ padding: '5px' }}
                 title="stream card"
             />

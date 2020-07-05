@@ -5,8 +5,8 @@ import { AppContext } from '../../context/AppContext'
 import { AppBar, Button, CssBaseline, Grid, Toolbar, Typography, Container, Link } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 
-//components import
-import LandingCards from '../../components/LandingCards/LandingCards'
+//component import 
+import TabSection from '../../components/TabsSection/TabsSection'
 
 const Copyright = () => {
     return (
@@ -102,14 +102,7 @@ const LandingPage = () => {
                     </Container>
                 </div>
                 <Container className={classes.cardGrid} maxWidth="md">
-                    {/* End hero unit */}
-                    <Grid container spacing={4}>
-                        {sortedExamData.map((stream) => (
-                            <Grid item key={stream._id} xs={4} sm={2}>
-                                <LandingCards title={stream.name} logo={stream.logo} />
-                            </Grid>
-                        ))}
-                    </Grid>
+                    <TabSection data={sortedExamData} />
                 </Container>
             </main>
             {/* Footer */}
