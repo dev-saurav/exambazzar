@@ -8,18 +8,6 @@ import { makeStyles } from '@material-ui/core/styles';
 //component import 
 import TabSection from '../../components/TabsSection/TabsSection'
 
-const Copyright = () => {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-                Your Website
-      </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
 //material ui styles
 const useStyles = makeStyles((theme) => ({
     icon: {
@@ -36,14 +24,11 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: theme.spacing(8),
         paddingBottom: theme.spacing(8),
     },
-
     footer: {
         backgroundColor: theme.palette.background.paper,
         padding: theme.spacing(6),
     },
 }));
-
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const LandingPage = () => {
     //get the required data and functions from App context
@@ -89,31 +74,27 @@ const LandingPage = () => {
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
                                     <Button variant="contained" color="primary">
-                                        Checkout Streams
-                  </Button>
+                                        <a style={{ textDecoration: "none", color: "inherit" }} href="#streams">Checkout Streams</a>
+                                    </Button>
                                 </Grid>
-                                <Grid item>
-                                    <Button variant="outlined" color="primary">
-                                        Checkout Exams
-                  </Button>
-                                </Grid>
+
                             </Grid>
                         </div>
                     </Container>
                 </div>
-                <Container className={classes.cardGrid} maxWidth="md">
+                <Container id="streams" maxWidth="md">
                     <TabSection data={sortedExamData} />
                 </Container>
             </main>
             {/* Footer */}
             <footer className={classes.footer}>
                 <Typography variant="h6" align="center" gutterBottom>
-                    Footer
+                    ExamBazaar
         </Typography>
                 <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                    Something here to give the footer a purpose!
+                    © 2020-2021
         </Typography>
-                <Copyright />
+
             </footer>
             {/* End footer */}
         </React.Fragment>
