@@ -1,4 +1,6 @@
 import React from 'react';
+//import context provider
+import { AppContextProvider } from './context/AppContext'
 //import css
 import './App.module.css';
 //import the pages
@@ -14,23 +16,26 @@ import {
 
 const App = () => {
   return (
-    //the base router
-    <Router>
-      <Switch>
-        {/* home page route */}
-        <Route exact path="/">
-          <LandingPage />
-        </Route>
-        {/* questions route */}
-        <Route path="/questions">
-          <QuestionsPage />
-        </Route>
-        {/* 404 route */}
-        <Route>
-          <NotFoundPage />
-        </Route>
-      </Switch>
-    </Router>
+    //providing context to the app
+    <AppContextProvider>
+      {/* base router */}
+      <Router>
+        <Switch>
+          {/* home page route */}
+          <Route exact path="/">
+            <LandingPage />
+          </Route>
+          {/* questions route */}
+          <Route path="/questions">
+            <QuestionsPage />
+          </Route>
+          {/* 404 route */}
+          <Route>
+            <NotFoundPage />
+          </Route>
+        </Switch>
+      </Router>
+    </AppContextProvider>
   );
 }
 

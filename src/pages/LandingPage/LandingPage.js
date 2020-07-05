@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+//import context
+import { AppContext } from '../../context/AppContext'
 //imports from material ui
 import { AppBar, Button, CssBaseline, Grid, Toolbar, Typography, Container, Link } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
@@ -44,6 +46,23 @@ const useStyles = makeStyles((theme) => ({
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 const LandingPage = () => {
+    //get the required data and functions from App context
+    const { getExamInfo } = useContext(AppContext)
+
+    //inital state
+    const [sortedExamData, setSortedExamData] = useState([])
+
+    //side effect (on the first call)
+    useEffect(() => {
+        const examData = async () => {
+            //sets the state
+            setSortedExamData(await getExamInfo())
+        }
+        //calls the function
+        examData()
+    }, [])
+
+    //classes for material ui styling
     const classes = useStyles();
 
     return (
@@ -85,9 +104,9 @@ const LandingPage = () => {
                 <Container className={classes.cardGrid} maxWidth="md">
                     {/* End hero unit */}
                     <Grid container spacing={4}>
-                        {cards.map((card) => (
-                            <Grid item key={card} xs={12} sm={6} md={4}>
-                                <LandingCards />
+                        {sortedExamData.map((stream) => (
+                            <Grid item key={stream._id} xs={12} sm={6} md={4}>
+                                <LandingCards title={stream.name} logo={stream.logo} />
                             </Grid>
                         ))}
                     </Grid>
