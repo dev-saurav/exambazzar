@@ -4,6 +4,7 @@ import './App.module.css';
 //import the pages
 import LandingPage from './pages/LandingPage/LandingPage';
 import QuestionsPage from './pages/QuestionsPage/QuestionsPage';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage'
 //import react-router
 import {
   BrowserRouter as Router,
@@ -23,6 +24,10 @@ const App = () => {
         {/* questions route */}
         <Route path="/questions">
           <QuestionsPage />
+        </Route>
+        {/* 404 route */}
+        <Route>
+          <NotFoundPage />
         </Route>
       </Switch>
     </Router>
