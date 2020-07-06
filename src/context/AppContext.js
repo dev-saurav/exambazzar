@@ -15,7 +15,7 @@ export const AppContextProvider = (props) => {
     //api calls
 
     //this will get the exam info
-    //baseURL/exam-info/:api-key
+    //GET//baseURL/exam-info/:api-key
     const getExamInfo = async () => {
         try {
             //destructure the data
@@ -27,10 +27,48 @@ export const AppContextProvider = (props) => {
         } catch (error) {
             console.log(error)
         }
-
+    }
+    //this will get the exam info
+    //POST//baseURL/exam-info/:api-key
+    const getRandomQuestion = async (examId) => {
+        try {
+            //set the body params
+            const body = {
+                api_key,
+                api_secret,
+                examId
+            }
+            //destructure the data
+            const { data: { data } } = await axios.post(`${baseURL}/random-question`, body)
+            //destructure the question
+            const { question } = data
+            return question;
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    //this will get the exam info
+    //POST//baseURL/exam-info/:api-key
+    const getParticularQuestion = async (examId, questionId) => {
+        try {
+            //set the body params
+            const body = {
+                api_key,
+                api_secret,
+                examId,
+                questionId
+            }
+            //destructure the data
+            const { data: { data } } = await axios.post(`${baseURL}/random-question`, body)
+            //destructure the question
+            const { question } = data
+            return question;
+        } catch (error) {
+            console.log(error)
+        }
     }
     return (
-        <AppContext.Provider value={{ getExamInfo }}>
+        <AppContext.Provider value={{ getExamInfo, getRandomQuestion, getParticularQuestion }}>
             {props.children}
         </AppContext.Provider>
     )
