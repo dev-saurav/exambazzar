@@ -78,7 +78,7 @@ export default function TabSection({ data }) {
                         {stream.exams.map((exam) => (
                             <Grid item key={exam._id} xs={6} sm={3}>
                                 {/* setup a link to questions page passing the id */}
-                                <Link style={{ textDecoration: "none", color: "black" }} to={`/questions/${exam._id}`}>
+                                <Link style={{ textDecoration: "none", color: "black" }} to={`exambazaar/questions/${exam._id}`}>
                                     <LandingCards title={exam.name} logo={exam.logo} />
                                 </Link>
                             </Grid>

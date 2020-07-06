@@ -26,9 +26,9 @@ const App = () => {
         <NavBar />
         <Switch>
           {/* home page route */}
-          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/exambazaar" component={LandingPage} />
           {/* questions route */}
-          <Route exact path="/questions/:examId" component={QuestionsPage} />
+          <Route exact path="/exambazaar/questions/:examId" component={QuestionsPage} />
           {/* 404 route */}
           <Route component={NotFoundPage} />
         </Switch>

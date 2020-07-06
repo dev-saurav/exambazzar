@@ -89,19 +89,22 @@ const QuestionsPage = ({ match }) => {
         }
     }
     return (
-        <div className={classes.heroContent}>
-            <Container maxWidth="md">
-                <Paper className={classes.paperStyles} elevation={5}>
-                    <div className={classes.navButtons}>
-                        <Chip disabled={previousQuestion.length <= 0} className={classes.chipStyle} label="< Previous" onClick={() => getAParticularQuestion()} />
-                        <Chip className={classes.chipStyle} label={question.exam} />
-                        <Chip className={classes.chipStyle} onClick={() => getNewRandomQuestion("next")} label="Next >" />
-                    </div>
-                    <Divider />
-                    <Questions question={question} />
-                </Paper>
-            </Container>
-        </div>
+        //check if question is loaded
+        question ?
+            (<div className={classes.heroContent}>
+                <Container maxWidth="md">
+                    <Paper className={classes.paperStyles} elevation={5}>
+                        <div className={classes.navButtons}>
+                            <Chip disabled={previousQuestion.length <= 0} className={classes.chipStyle} label="< Previous" onClick={() => getAParticularQuestion()} />
+                            <Chip className={classes.chipStyle} label={question.exam} />
+                            <Chip className={classes.chipStyle} onClick={() => getNewRandomQuestion("next")} label="Next >" />
+                        </div>
+                        <Divider />
+                        <Questions question={question} />
+                    </Paper>
+                </Container>
+            </div>)
+            : "loading..."
     )
 }
 
