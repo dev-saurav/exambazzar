@@ -28,7 +28,7 @@ const App = () => {
           {/* home page route */}
           <Route exact path="/exambazzar" component={LandingPage} />
           {/* questions route */}
-          <Route exact path="/exambazzar/questions/:examId" component={QuestionsPage} />
+          <Route path="/exambazzar/questions/:examId" component={QuestionsPage} />
           {/* 404 route */}
           <Route component={NotFoundPage} />
         </Switch>
