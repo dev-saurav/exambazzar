@@ -26,7 +26,7 @@ const App = () => {
         <NavBar />
         <Switch>
           {/* home page route */}
-          <Route exact path="/exambazzar" component={LandingPage} />
+          <Route exact path="/exambazzar/" component={LandingPage} />
           {/* questions route */}
           <Route path="/exambazzar/questions/:examId" component={QuestionsPage} />
           {/* 404 route */}
