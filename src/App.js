@@ -21,9 +21,9 @@ const App = () => {
   return (
     //providing context to the app
     <AppContextProvider>
-      <NavBar />
       {/* base router */}
       <Router>
+        <NavBar />
         <Switch>
           {/* home page route */}
           <Route exact path="/" component={LandingPage} />

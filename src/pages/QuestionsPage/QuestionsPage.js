@@ -109,7 +109,7 @@ const QuestionsPage = ({ match }) => {
             <Container maxWidth="md">
                 <Paper className={classes.paperStyles} elevation={5}>
                     <div className={classes.navButtons}>
-                        <Chip disabled={!previousQuestion.length > 1} className={classes.chipStyle} label="< Previous" onClick={() => getAParticularQuestion()} />
+                        <Chip disabled={previousQuestion.length <= 0} className={classes.chipStyle} label="< Previous" onClick={() => getAParticularQuestion()} />
                         <Chip className={classes.chipStyle} label={examName} />
                         <Chip className={classes.chipStyle} onClick={() => getNewRandomQuestion("next")} label="Next >" />
                     </div>
@@ -125,11 +125,9 @@ const QuestionsPage = ({ match }) => {
                     <div>
                         <Grid container spacing={2} justify="center">
                             {question.options ? question.options.map(option => (
-                                <>
-                                    <Grid key={uuidv4()} xs={12} item>
-                                        <div className={classes.optionStyles}>{option.option}</div>
-                                    </Grid>
-                                </>
+                                <Grid key={uuidv4()} xs={12} item>
+                                    <div className={classes.optionStyles}>{option.option}</div>
+                                </Grid>
                             )) : null}
                         </Grid>
                     </div>

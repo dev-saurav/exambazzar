@@ -29,7 +29,8 @@ export const AppContextProvider = (props) => {
         }
     }
     //this will get the exam info
-    //POST//baseURL/exam-info/:api-key
+    //generate a new random question
+    //POST//baseURL/random-question/
     const getRandomQuestion = async (examId) => {
         try {
             //set the body params
@@ -47,8 +48,8 @@ export const AppContextProvider = (props) => {
             console.log(error)
         }
     }
-    //this will get the exam info
-    //POST//baseURL/exam-info/:api-key
+    //this will provide a particular question
+    //POST//baseURL/random-question/
     const getParticularQuestion = async (examId, questionId) => {
         try {
             //set the body params
@@ -68,6 +69,7 @@ export const AppContextProvider = (props) => {
         }
     }
     return (
+        //provide all the necessary values
         <AppContext.Provider value={{ getExamInfo, getRandomQuestion, getParticularQuestion }}>
             {props.children}
         </AppContext.Provider>
