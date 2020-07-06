@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from 'react'
+import { Link } from 'react-router-dom'
 //imports for material-ui
 import { AppBar, Tabs, Tab, Typography, Box, Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
@@ -77,7 +77,10 @@ export default function TabSection({ data }) {
                         {/* this maps all the exams for a particular stream */}
                         {stream.exams.map((exam) => (
                             <Grid item key={exam._id} xs={6} sm={3}>
-                                <LandingCards title={exam.name} logo={exam.logo} />
+                                {/* setup a link to questions page passing the id */}
+                                <Link style={{ textDecoration: "none", color: "black" }} to={`/questions/${exam._id}`}>
+                                    <LandingCards title={exam.name} logo={exam.logo} />
+                                </Link>
                             </Grid>
                         ))}
                     </Grid>

@@ -1,6 +1,7 @@
 import React from 'react'
 import "./QuestionsPage.module.css"
-const QuestionsPage = () => {
+const QuestionsPage = ({ match }) => {
+    console.log(match.params.examId)
     return (
         <div>
             questions page

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 //import context
 import { AppContext } from '../../context/AppContext'
 //imports from material ui
-import { AppBar, Button, CssBaseline, Grid, Toolbar, Typography, Container, Link } from '@material-ui/core'
+import { Button, Grid,  Typography, Container, Link } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 
 //component import 
@@ -23,11 +23,7 @@ const useStyles = makeStyles((theme) => ({
     cardGrid: {
         paddingTop: theme.spacing(8),
         paddingBottom: theme.spacing(8),
-    },
-    footer: {
-        backgroundColor: theme.palette.background.paper,
-        padding: theme.spacing(6),
-    },
+    }
 }));
 
 const LandingPage = () => {
@@ -52,14 +48,6 @@ const LandingPage = () => {
 
     return (
         <React.Fragment>
-            <CssBaseline />
-            <AppBar position="relative">
-                <Toolbar>
-                    <Typography variant="h6" color="inherit" noWrap>
-                        Exambazaar
-          </Typography>
-                </Toolbar>
-            </AppBar>
             <main>
                 {/* Hero unit */}
                 <div className={classes.heroContent}>
@@ -87,15 +75,7 @@ const LandingPage = () => {
                 </Container>
             </main>
             {/* Footer */}
-            <footer className={classes.footer}>
-                <Typography variant="h6" align="center" gutterBottom>
-                    ExamBazaar
-        </Typography>
-                <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                    © 2020-2021
-        </Typography>
-
-            </footer>
+            
             {/* End footer */}
         </React.Fragment>
     );
