@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 //import context
 import { AppContext } from '../../context/AppContext'
 //imports from material ui
-import { Button, Grid,  Typography, Container, Link } from '@material-ui/core'
+import { Button, Grid, Typography, Container } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 
 //component import 
@@ -75,7 +75,7 @@ const LandingPage = () => {
                 </Container>
             </main>
             {/* Footer */}
-            
+
             {/* End footer */}
         </React.Fragment>
     );

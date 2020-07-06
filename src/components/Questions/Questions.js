@@ -1,10 +1,12 @@
 import React from 'react'
 import { v4 as uuidv4 } from 'uuid';
 
+//material ui imports
 import { Typography, Grid, Divider } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import { grey } from "@material-ui/core/colors";
 
+//styles
 const useStyles = makeStyles(theme => ({
     questionText: {
         padding: "20px"
@@ -61,9 +63,9 @@ const Questions = ({ question }) => {
                 paragraph
             >{question.context}</Typography>) : null}
             {/* render all the questions */}
-            {console.log(question._id)}
             {question.questions ? question.questions.map((q, index) => (
                 <div key={uuidv4()}>
+                    {/* this is the question header */}
                     <div className={classes.questionHeader}>
                         <div className={classes.questionInfo}>
                             <div className={classes.questionNo}>
@@ -75,6 +77,7 @@ const Questions = ({ question }) => {
                         </div>
                         <div className={classes.markings}>
                             <div className={classes.correct}>
+                                {/* check if marking is avilable */}
                                 {q.marking ? q.marking.correct : null}
                             </div>
                             <div className={classes.wrong}>
@@ -87,16 +90,18 @@ const Questions = ({ question }) => {
                         className={classes.questionText}
                         variant="h6"
                         align="center"
-
                     >
+                        {/* render the question */}
                         {q.question}
-                        {question.images ? question.images.map(image => (<div key={uuidv4()} className={classes.contextImg}><img src={image} /></div>)) : null}
+                        {/* render the images if any */}
+                        {question.images ? question.images.map(image => (<div key={uuidv4()} className={classes.contextImg}><img src={image} alt="question-img"/></div>)) : null}
                         {q.images.length > 0 ?
-                            q.images.map(image => (<img src={image} />))
+                            q.images.map(image => (<img src={image} alt="question-img"/>))
                             : null}
                     </Typography>
                     <div>
                         <Grid container spacing={2} justify="center">
+                            {/* render all the options of the question */}
                             {q.options ? q.options.map(option => (
                                 <Grid key={uuidv4()} xs={12} item>
                                     <div className={classes.optionStyles}>{option.option}</div>
